@@ -26,7 +26,7 @@ manual_app
 | email              | string     | null: false, uniqueness: true |
 | password           | string     | null: false                   |
 | encrypted_password | string     | null: false                   |
-| authority          | string     | null: false                   |
+| authority_id       | integer    | null: false                   |
 ### Association
 - has_many :manuals
 - has_many :approvals
