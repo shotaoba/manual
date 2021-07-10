@@ -4,12 +4,44 @@
     <title>Manual</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/286d83ac03.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
+    <header class="header">
+        <div class="header_left">
+          <h1 class="header_logo">
+          <a href="/"><i class="fas fa-chalkboard-teacher"></i> Work_Manual_App</a></h1>
+        </div>
+        <div class="header_right">
+          <div class="user_name">
+            <% if user_signed_in? %>
+              <%= "ログイン中： #{current_user.name}さん" %>
+            <%else%>
+              <%= "ログインもしくは新規登録が必要です" %>
+            <% end %>
+          </div>
+          <div class="main_nav">
+            <% if user_signed_in? %>
+              <%= link_to "マニュアルの一覧をみる", work_manuals_path, class: "btn" %>
+              <%= link_to "マニュアルを登録する", new_work_manual_path, class: "btn" %>
+              <%= link_to "ユーザー情報編集", edit_user_registration_path, class: "btn" %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn" %>
+            <% else %> 
+              <%= link_to "ログイン", new_user_session_path, class: "btn" %>
+              <%= link_to "新規登録", new_user_registration_path, class: "btn" %>
+            <% end%> 
+          </div>
+        </div>
+    </header>
     <%= yield %>
+    <footer>
+      <p>
+        Copyright Work_Manual_App.
+      </p>
+    </footer>
   </body>
 </html>

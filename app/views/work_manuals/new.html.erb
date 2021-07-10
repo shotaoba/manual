@@ -1,0 +1,24 @@
+<div class="main_image">
+  <h1>マニュアルの登録をしましょう</h1>
+</div>
+<div class="form_work_manual">
+  <%= form_with model: @work_manual, local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+    <div class="form_title">
+      <%= f.label :title, 'マニュアル名' %><br>
+      <%= f.text_field :title, placeholder: '例）〇〇の組立て作業、〇〇寸法測定作業・・など'%> <br>
+    </div>
+    <div class="form_process">
+      <%= f.label :process, '工程名' %><br>
+      <%= f.text_field :process, placeholder: '例）組立て、検査・・など'%> <br>
+    </div>
+    <div class="form_video">
+      <%= f.label :video, '動画' %><br>
+      <%= f.file_field :video %> <br>
+    </div>
+    <div class="form_submit">
+      <%= f.submit '登録する' %>
+    </div>
+  <% end %>
+  <p>※※※ 作成・修正権限者しかマニュアルの登録フォームが表示されません ※※※</p>
+</div>
