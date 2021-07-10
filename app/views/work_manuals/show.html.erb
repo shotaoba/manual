@@ -1,0 +1,77 @@
+<div class="work_manual-wrap">
+  <div class="work_manual_header">
+    <div class="work_manual_title" >
+      <%= "マニュアル名： #{@work_manual.title}" %>
+    </div>
+    <div class="work_manual_process">
+      <%= "工程： #{@work_manual.process}" %>
+    </div>
+  </div>
+  <div class="main">
+    <div class="work_manual_main">
+          <div class="work_manual_video">
+            <% if @work_manual.video.attached? %>
+              <%= video_tag rails_blob_path(@work_manual.video, disposition: "attachment"), :controls => true %>
+            <%end%>
+          </div>
+          <div class="work_manual_btn">
+            <% if current_user.authority_id >= 3 %>
+              <ul>
+                <li><%= link_to 'マニュアル編集', edit_work_manual_path(@work_manual.id), method: :get %></li>
+                <li><%= link_to 'マニュアル削除', work_manual_path(@work_manual.id), method: :delete %></li>
+              </ul>
+            <%end%>
+          </div>
+    </div>
+    <div class="procedure_container">
+      <% n = 1 %>
+      <% @procedures.each do |procedure| %>
+        <div class="procedure_main">
+          <div class="procedure_left">
+            <%= image_tag procedure.image.variant(resize: '500x500') if procedure.image.attached? %>
+          </div>
+          <div class="procedure_right">
+            <%= "手順.#{n}" %>
+            <div class="procedure_description">
+              <%= procedure.description %>
+            </div>
+            <%= "作業のポイント" %>
+            <div class="procedure_point">
+              <%= procedure.point%>
+            </div>
+            <div class="procedure_btn">
+              <%= link_to '削除', work_manual_procedure_path(@work_manual,procedure), method: :delete %></li>
+            </div>
+          </div>
+        </div>
+        <% n += 1%>
+      <% end %>
+    </div>
+    <div class="new_procedure_container">
+        <% if current_user.authority_id >= 3 %>
+          <h1>手順の作成・追加</h1>
+          <%= form_with(model: [@work_manual, @procedure], local: true) do |f| %>
+            <%= render 'shared/error_messages', model: f.object %>
+            <div class="form_image"> 
+              <%= f.label :image, '画像' %><br>
+              <%= f.file_field :image %>
+            </div>
+            <div class="form_description">
+              <%= f.label :description, '手順' %><br>
+              <%= f.text_area :description, placeholder: "手順の入力をしてください。" %>
+            </div>
+            <div class="form_point">
+              <%= f.label :point, '作業のポイント'%><br>
+              <%= f.text_area :point, placeholder: "この手順のpointを入力してください。" %>
+            </div>
+            <div class="form_submit">
+              <%= f.submit "追加する" %>
+            </div>
+          <% end %>
+        <% else %> 
+          <div class="form_message">
+            <p>※※※ 作成・修正権限者しか手順の登録フォームが表示されません ※※※</p>
+          </div>
+        <% end %> 
+    </div>
+</div>

@@ -10,8 +10,9 @@ class User < ApplicationRecord
 
   end
 
-  has_many :manuals
+  has_many :work_manuals
   has_many :approvals
+  has_many :procedures
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :authority

@@ -1,0 +1,156 @@
+header{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 150px;
+ }
+.header_left a{
+  text-decoration: none;
+}
+.header_logo a{
+  font-size: 30px;
+  color: black;
+  border: black;
+}
+.main_nav {
+ display: flex;
+ justify-content: flex-end;
+}
+.about_nav{
+  margin-top: 400px;
+}
+.btn{
+  margin-right: 10px;
+  font-size: 8px;
+  text-decoration: none;
+  background-color: slategrey;
+  color: white;
+  border-radius: 5px;
+  padding: 13px;
+  margin-bottom: 10px;
+}
+.big_btn{
+  display: block;
+  width: 400px;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  background-color: #904644;
+  margin: 0 auto;
+
+}
+.header_right a:hover{
+  background-color: lightgrey;
+}
+.user_name{
+  text-align: right;
+  margin-bottom: 20px;
+}
+.main_image{
+  height: 500px;
+  width: 100%;
+  text-align: center;
+  padding-top: 20%;
+  background-image: image-url('welding-1209208__480.webp');
+  background-size: cover;
+  background-color:rgba(255,255,255,0.3);
+  background-blend-mode: lighten;
+  background-repeat: no-repeat;
+  margin-bottom: 50px;
+}
+.form_title{
+  margin-bottom: 30px;
+}
+.form_process{
+  margin-bottom: 30px;
+}
+input[type="text"]{
+  width: 400px;
+  height: 50px;
+  border-style: groove;
+}
+.main_image h1{
+  font-size: 30px;
+  font-weight: bold;
+  color: cornsilk;
+}
+.work_manual-wrap{
+  margin-bottom: 30px;
+  padding-left: 100px;
+  padding-top: 100px;
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
+}
+.work_manual_header{
+  display: flex;
+  margin-bottom: 30px;
+  width: 100%;
+}
+.work_manual_title{
+  margin-right: 30px;
+  font-size: 20px;
+}
+.work_manual_process{
+  font-size: 20px;
+}
+.work_manual_main{
+  display: flex;
+  margin-bottom: 100px;
+  height: 300px;
+}
+.work_manual_video{
+  height: 100%;
+}
+
+.form_work_manual{
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+}
+.procedure_container{
+  overflow: scroll;
+}
+.procedure_main{
+  display: flex;
+}
+.procedure_right{
+  padding-top: 50px;
+  padding-left: 30px;
+  width: calc(100% - 300px);
+} 
+.procedure_description{
+  margin-bottom: 50px;
+  width: 300px;
+}
+.new_procedure_container{
+  height: 700px;
+  width: 100%;
+}
+.new_procedure_container p{
+  text-align: center;
+}
+textarea{
+  margin-right: 100px;
+  height: 100px;
+  width: 95%;
+}
+.form_submit{
+  margin-bottom: 50px;
+  padding: 50px;
+}
+.form_submit input{
+  width: 400px;
+  padding: 10px;
+  border-style: groove;
+}
+.form_message{
+  margin-top: 100px;
+}
+footer{
+  text-align: center;
+  height: 100px;
+  background-color: lightgrey;
+}
