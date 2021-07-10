@@ -26,31 +26,38 @@ manual_app
 | email              | string     | null: false, uniqueness: true |
 | password           | string     | null: false                   |
 | encrypted_password | string     | null: false                   |
-| authority          | string     | null: false                   |
+| authority_id       | integer    | null: false                   |
 ### Association
-- has_many :manuals
+- has_many :work_manuals
 - has_many :approvals
+- has_many :procedures
 
 
-## manualsテーブル
-| Column  | Type       | Options      |
-| ------- | ---------- | ------------ |
-| title   | string     | null: false  |
-| process | string     | null: false  |
+## work_manualsテーブル
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| title   | string     | null: false                    |
+| process | string     | null: false                    |
+| user_id | references | null: false, foreign_key: true |
 ### Association
 - belongs_to :approval
 - belongs_to :user
 - has_many :tags
 - has_many :procedures
+- has_one_attached :video
 
 
 ## proceduresテーブル
-| Column      | Type       | Options     |
-| ----------- | ---------- | ----------- |
-| description | string     | null: false |
-| points      | string     | null: false |
+| Column         | Type       | Options     |
+| -------------- | ---------- | ----------- |
+| description    | text       | null: false |
+| point          | text       |             |
+| work_manual_id | integer    | null: false |
+| user_id        | integer    | null: false |
 ### Association
-- belongs_to :manual
+- belongs_to :work_manual
+- has_many :users
+- has_one_attached :image
 
 
 ## approvalsテーブル
@@ -59,7 +66,7 @@ manual_app
 | manual | references | null: false, foreign_key: true |
 | user   | references | null: false, foreign_key: true |
 ### Association
-- belongs_to :manual
+- belongs_to :work_manual
 - belongs_to :user
 
 
@@ -68,7 +75,7 @@ manual_app
 | ------ | ---------- | ----------------------------- |
 | name   | string     | null: false, uniqueness: true |
 ### Association
-- belongs_to :manual
+- belongs_to :work_manual
 
 ## manual_tagsテーブル
 | Column | Type       | Options                        |
@@ -76,7 +83,7 @@ manual_app
 | manual | references | null: false, foreign_key: true |
 | tag    | references | null: false, foreign_key: true |
 ### Association
-- belongs_to :manual
+- belongs_to :work_manual
 - belongs_to :tag
 
 

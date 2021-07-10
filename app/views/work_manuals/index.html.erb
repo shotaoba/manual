@@ -1,0 +1,37 @@
+<div class="work_manual-wrap">
+    <% @work_manuals.each do |work_manual|%>
+      <div class="work_manual_header">
+        <div class="work_manual_title" >
+          <%= "マニュアル名： #{work_manual.title}" %>
+        </div>
+        <div class="work_manual_process">
+          <%= "工程： #{work_manual.process}" %>
+        </div>
+      </div>
+      <div class="work_manual_main">
+        <div class="work_manual_video">
+          <% if work_manual.video.attached? %>
+            <%= video_tag rails_blob_path(work_manual.video, disposition: "attachment"), :controls => true %>
+          <%end%>
+        </div>
+        <div class="work_manual_btn">
+          <% if current_user.authority_id >= 3 %>
+          <ul>
+            <li><%= link_to '手順の一覧・作成', work_manual_path(work_manual.id), method: :get %></li>
+            <li><%= link_to 'マニュアル編集', edit_work_manual_path(work_manual.id), method: :get %></li>
+            <li><%= link_to 'マニュアル削除', work_manual_path(work_manual.id), method: :delete %></li>
+          </ul>
+          <%else%>
+            <%= link_to '手順の一覧をみる', work_manual_path(work_manual.id), method: :get %>
+          <%end%>
+        </div>
+      </div>
+        <%# <ul class="tag">
+          <li class="tag-list">
+            <%work_manual..each do |tag| %>
+              <%# #<%=tag.name%> 
+            <%# <%end%> 
+          <%# </li> %>
+        <%# </ul> %> 
+    <%end%>
+</div>
