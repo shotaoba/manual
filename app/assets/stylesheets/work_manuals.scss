@@ -48,6 +48,9 @@ header{
   text-align: right;
   margin-bottom: 20px;
 }
+.work_manuals_search-wrap{
+  text-align: center;
+}
 .main_image{
   height: 500px;
   width: 100%;
@@ -64,6 +67,9 @@ header{
   margin-bottom: 30px;
 }
 .form_process{
+  margin-bottom: 30px;
+}
+.form_tag{
   margin-bottom: 30px;
 }
 input[type="text"]{
@@ -101,10 +107,16 @@ input[type="text"]{
   margin-bottom: 100px;
   height: 300px;
 }
+.work_manual_main_right{
+  display: flex;
+  flex-direction: column;
+}
+.tag{
+  margin-bottom: 20px;
+}
 .work_manual_video{
   height: 100%;
 }
-
 .form_work_manual{
   height: 100vh;
   width: 100%;

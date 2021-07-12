@@ -42,7 +42,8 @@ manual_app
 ### Association
 - belongs_to :approval
 - belongs_to :user
-- has_many :tags
+- has_many :work_manual_tag_relations
+- has_many :tags, through: :work_manual_tag_relations
 - has_many :procedures
 - has_one_attached :video
 
@@ -75,13 +76,14 @@ manual_app
 | ------ | ---------- | ----------------------------- |
 | name   | string     | null: false, uniqueness: true |
 ### Association
-- belongs_to :work_manual
+- has_many :work_manual_tag_relations
+- has_many :work_manuals, through: :work_manual_tag_relations
 
-## manual_tagsテーブル
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| manual | references | null: false, foreign_key: true |
-| tag    | references | null: false, foreign_key: true |
+## work_manual_tagsテーブル
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| work_manual | references | null: false, foreign_key: true |
+| tag         | references | null: false, foreign_key: true |
 ### Association
 - belongs_to :work_manual
 - belongs_to :tag
