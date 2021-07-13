@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Manual</title>
+    <title>Work_Manual_app</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
@@ -26,13 +26,25 @@
           </div>
           <div class="main_nav">
             <% if user_signed_in? %>
-              <%= link_to "マニュアルの一覧をみる", work_manuals_path, class: "btn" %>
-              <%= link_to "マニュアルを登録する", new_work_manual_path, class: "btn" %>
-              <%= link_to "ユーザー情報編集", edit_user_registration_path, class: "btn" %>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn" %>
+              <%= link_to (work_manuals_path)do%>
+                <span class="fas fa-book-reader btn"> 一覧をみる</span>
+              <%end%>
+              <%= link_to (new_work_manual_path)do%>
+                <span class="fas fa-book btn"> 登録する</span>
+              <%end%>
+              <%= link_to (edit_user_registration_path)do%>
+                <span class="far fa-address-card btn"> ユーザー編集</span>
+              <%end%>
+              <%= link_to (destroy_user_session_path), method: :delete do%>
+                <span class="fas fa-sign-out-alt btn"> ログアウト</span>
+              <%end%>
             <% else %> 
-              <%= link_to "ログイン", new_user_session_path, class: "btn" %>
-              <%= link_to "新規登録", new_user_registration_path, class: "btn" %>
+              <%= link_to (new_user_session_path) do%>
+                <span class="fas fa-sign-in-alt btn"> ログイン</span>
+              <%end%>
+              <%= link_to (new_user_registration_path)do %>
+                <span class="fab fa-creative-commons-by btn"> 新規登録</span>
+              <% end%>
             <% end%> 
           </div>
         </div>
