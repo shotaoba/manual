@@ -4,10 +4,14 @@ manual_app
 作業手順の管理ができる
 
 # URL	デプロイ済みのURLを記述。デプロイが済んでいない場合は、デプロイが完了次第記述すること。
-
+URL
 
 # テスト用アカウント	ログイン機能等を実装した場合は、ログインに必要な情報を記述。またBasic認証等を設けている場合は、そのID/Passも記述すること。
+
 # 利用方法	このアプリケーションの利用方法を記述。
+ユーザー登録を行い、マニュアルを登録した後に、手順を登録する。ユーザー登録時に権限の割り振りをしており、
+このマニュアルと手順の作成・編集・削除は機能を制限している。
+基本的にはログインしていれば閲覧は全てのユーザーが、可能である。
 # 目指した課題解決	このアプリケーションを通じて、どのような人の、どのような課題を解決しようとしているのかを記述。
 現在人手不足が深刻化しており、新入社員への教育時間がさけない。
 しかし、教育は品質やサービスの質に直結する要素なので、疎かにできない。
@@ -15,8 +19,11 @@ manual_app
 また感コツと行った熟練工の作業は、ニュアンスが伝わるよう動画を添付できるようにし、理解できるようにした。
 
 # 洗い出した要件	スプレッドシートにまとめた要件定義を記述。
+
 # 実装した機能についての画像やGIFおよびその説明	実装した機能について、それぞれどのような特徴があるのかを列挙する形で記述。画像はGyazoで、GIFはGyazoGIFで撮影すること。
+
 # 実装予定の機能	洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記述。
+タグの紐つけ、検索機能
 
 # データベース設計	ER図等を添付。
 ## usersテーブル
@@ -42,7 +49,8 @@ manual_app
 ### Association
 - belongs_to :approval
 - belongs_to :user
-- has_many :tags
+- has_many :work_manual_tag_relations
+- has_many :tags, through: :work_manual_tag_relations
 - has_many :procedures
 - has_one_attached :video
 
@@ -75,13 +83,14 @@ manual_app
 | ------ | ---------- | ----------------------------- |
 | name   | string     | null: false, uniqueness: true |
 ### Association
-- belongs_to :work_manual
+- has_many :work_manual_tag_relations
+- has_many :work_manuals, through: :work_manual_tag_relations
 
-## manual_tagsテーブル
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| manual | references | null: false, foreign_key: true |
-| tag    | references | null: false, foreign_key: true |
+## work_manual_tagsテーブル
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| work_manual | references | null: false, foreign_key: true |
+| tag         | references | null: false, foreign_key: true |
 ### Association
 - belongs_to :work_manual
 - belongs_to :tag
