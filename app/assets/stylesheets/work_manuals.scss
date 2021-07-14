@@ -26,8 +26,7 @@ header{
   background-color: slategrey;
   color: white;
   border-radius: 5px;
-  padding: 13px;
-  margin-bottom: 10px;
+  padding: 15px;
 }
 .big_btn{
   display: block;
@@ -41,7 +40,7 @@ header{
   margin: 0 auto;
 
 }
-.header_right a:hover{
+.btn:hover{
   background-color: lightgrey;
 }
 .user_name{
@@ -69,8 +68,8 @@ header{
 .form_process{
   margin-bottom: 30px;
 }
-.form_tag{
-  margin-bottom: 30px;
+.form_video{
+  margin-top: 30px;
 }
 input[type="text"]{
   width: 400px;
@@ -164,5 +163,5 @@ textarea{
 footer{
   text-align: center;
   height: 100px;
-  background-color: lightgrey;
+  padding-top: 35px;
 }
