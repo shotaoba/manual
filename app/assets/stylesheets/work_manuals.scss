@@ -50,6 +50,12 @@ header{
 .work_manuals_search-wrap{
   text-align: center;
 }
+.approved{
+  color: grey;
+}
+.unapproved{
+  color: tomato;
+}
 .main_image{
   height: 500px;
   width: 100%;
@@ -94,12 +100,18 @@ input[type="text"]{
   margin-bottom: 30px;
   width: 100%;
 }
+.work_manual-date{
+  margin-left: 20px;
+}
 .work_manual_title{
   margin-right: 30px;
   font-size: 20px;
+  width: 450px;
 }
 .work_manual_process{
   font-size: 20px;
+  margin-right: 20px;
+  width: 200px;
 }
 .work_manual_main{
   display: flex;
@@ -109,9 +121,23 @@ input[type="text"]{
 .work_manual_main_right{
   display: flex;
   flex-direction: column;
+  padding-left: 60px;
+}
+.approval_data{
+  margin-bottom: 20px;
+}
+.main_btn {
+  color: gray;
+  text-decoration: none;
 }
 .tag{
   margin-bottom: 20px;
+}
+.tag_box{
+  margin-bottom: 20px;
+}
+.tag_box li{
+  color: blue;
 }
 .work_manual_video{
   height: 100%;

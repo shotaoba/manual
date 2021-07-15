@@ -69,10 +69,10 @@ URL
 
 
 ## approvalsテーブル
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| manual | references | null: false, foreign_key: true |
-| user   | references | null: false, foreign_key: true |
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| work_manual | references | null: false, foreign_key: true |
+| user        | references | null: false, foreign_key: true |
 ### Association
 - belongs_to :work_manual
 - belongs_to :user
