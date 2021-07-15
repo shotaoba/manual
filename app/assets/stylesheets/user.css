@@ -1,0 +1,15 @@
+.sign_wrap{
+  width: 100vw;
+  height: 900px;
+  display: flex;
+  justify-content: center;
+}
+.form_wrap{
+  padding-top: 100px;
+  width: 50%;
+}
+.field textarea{
+  width: 100%;
+}
+
+}

@@ -7,6 +7,7 @@ class WorkManualsController < ApplicationController
     @search = WorkManual.ransack(params[:q])
     @work_manuals = @search.result
     @tags = Tag.all
+    @approvals = Approval.all
   end
   def new
     @work_manual = WorkManualsTag.new

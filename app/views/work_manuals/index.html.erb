@@ -9,12 +9,23 @@
 </div>
 <div class="work_manual-wrap">
     <% @work_manuals.each do |work_manual|%>
+      <% if work_manual.approval != nil || current_user.authority_id >= 3 %>
       <div class="work_manual_header">
         <div class="work_manual_title" >
+          <% if work_manual.approval != nil %>
+              <p class="approved">承認済</p>
+          <%else%> 
+              <p class="unapproved">未承認</p>
+          <% end %>
           <%= "マニュアル名： #{work_manual.title}" %>
         </div>
         <div class="work_manual_process">
-          <%= "工程： #{work_manual.process}" %>
+          <%= "作成者： #{work_manual.user.name}"%><br>
+          <%= "工程名： #{work_manual.process}" %>
+        </div>
+        <div class="work_manual_date">
+          <%= "更新日： #{work_manual.updated_at}" %><br>
+          <%= "作成日： #{work_manual.created_at}" %>
         </div>
       </div>
       <div class="work_manual_main">
@@ -24,6 +35,13 @@
           <%end%>
         </div>
         <div class="work_manual_main_right">
+          <div class=approval_data>
+            <% if work_manual.approval.present?%>
+            <%= "承認日： #{work_manual.approval.updated_at}"%><br>
+            <%= "承認者： #{work_manual.approval.user.name}"%>
+            <%end%>
+          </div>
+          <div class="tag_box">
           <ul>
             <li>
               <%work_manual.tags.each do |tag| %>
@@ -31,18 +49,27 @@
               <%end%>
             </li>
           </ul>
+          </div>
           <div class="work_manual_btn">
             <% if current_user.authority_id >= 3 %>
-            <ul>
-              <li><%= link_to '手順の一覧・作成', work_manual_path(work_manual.id), method: :get %></li>
-              <li><%= link_to 'マニュアル編集', edit_work_manual_path(work_manual.id), method: :get %></li>
-              <li><%= link_to 'マニュアル削除', work_manual_path(work_manual.id), method: :delete %></li>
-            </ul>
+              <ul>
+                <li><%= link_to '手順の一覧・作成', work_manual_path(work_manual.id), method: :get %></li>
+                <li><%= link_to 'マニュアル編集', edit_work_manual_path(work_manual.id), method: :get %></li>
+                <li><%= link_to 'マニュアル削除', work_manual_path(work_manual.id), method: :delete %></li>
+              </ul>
             <%else%>
               <%= link_to '手順の一覧をみる', work_manual_path(work_manual.id), method: :get %>
             <%end%>
+              <% if current_user.authority_id == 4 %>
+                <% if work_manual.approval == nil %> 
+                  <%= link_to '承認をする', work_manual_approvals_path(work_manual.id), method: :post %>
+                <% else%>
+                  <%= link_to '承認を取り消す', work_manual_approval_path(work_manual,work_manual.approval), method: :delete%>
+                <% end %> 
+              <% end %>
           </div>
         </div>
       </div>
+      <%end%>
     <%end%>
 </div>

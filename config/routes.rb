@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "abouts#index"
   resources :work_manuals do
     resources :procedures, only: [:create, :destroy]
+    resources :approvals, only: [:index, :create, :destroy]
     collection do
       get 'search'
     end
