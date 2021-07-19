@@ -38,6 +38,7 @@ URL
 - has_many :work_manuals
 - has_many :approvals
 - has_many :procedures
+- has_many :messages
 
 
 ## work_manualsテーブル
@@ -94,6 +95,16 @@ URL
 ### Association
 - belongs_to :work_manual
 - belongs_to :tag
+
+## messagesテーブル
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| title       | string     | null: false                    |
+| content     | text       | null: false                    |
+| destination | string     | null: false                    |
+| user        | references | null: false, foreign_key: true |
+### Association
+- belongs_to :user
 
 
 # ローカルでの動作方法	git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記述。この時、アプリケーション

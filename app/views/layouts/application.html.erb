@@ -26,6 +26,9 @@
           </div>
           <div class="main_nav">
             <% if user_signed_in? %>
+              <%= link_to (new_message_path)do%>
+                <span class="far fa-comment-dots btn"> メッセージ</span>
+              <%end%>
               <%= link_to (work_manuals_path)do%>
                 <span class="fas fa-book-reader btn"> 一覧をみる</span>
               <%end%>

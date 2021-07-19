@@ -6,6 +6,10 @@
     <div class="work_manual_process">
       <%= "工程： #{@work_manual.process}" %>
     </div>
+     <div class="work_manual_date">
+          <%= "文書番号：Q-WM-#{@work_manual.id}"%><br>
+          <%= "作成日： #{@work_manual.created_at}" %>
+        </div>
   </div>
   <div class="main">
     <div class="work_manual_main">
@@ -17,7 +21,6 @@
           <div class="work_manual_btn">
             <% if current_user.authority_id >= 3 %>
               <ul>
-                <li><%= link_to 'マニュアル編集', edit_work_manual_path(@work_manual.id), method: :get %></li>
                 <li><%= link_to 'マニュアル削除', work_manual_path(@work_manual.id), method: :delete %></li>
               </ul>
             <%end%>

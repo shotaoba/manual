@@ -2,7 +2,8 @@
   <h1>マニュアルの編集をしましょう</h1>
 </div>
 <div class="form_work_manual">
-  <%= form_with model: @work_manual, local: true do |f| %>
+  <%= form_with model: @work_manual,url: work_manual_path, method: :patch, local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
     <div class="form_title">
       <%= f.label :title, 'マニュアル名' %><br>
       <%= f.text_field :title, placeholder: '例）〇〇の組立て作業、〇〇寸法測定作業・・など'%> <br>
@@ -10,6 +11,12 @@
     <div class="form_process">
       <%= f.label :process, '工程名' %><br>
       <%= f.text_field :process, placeholder: '例）組立て、検査・・など'%> <br>
+    </div>
+    <div class="form_tag", id='work_manual_tag-name'>
+      <%= f.label :name, "タグ" %><br>
+      <%= f.text_field :name, placeholder: '複数入力は,で区切ってください', class:"input-tag" %>
+    </div>
+    <div id="search-result">
     </div>
     <div class="form_video">
       <%= f.label :video, '動画' %><br>
@@ -19,4 +26,5 @@
       <%= f.submit '登録する' %>
     </div>
   <% end %>
+  <p>※※※ 作成・修正権限者のみ、マニュアルの登録・編集が可能です ※※※</p>
 </div>
