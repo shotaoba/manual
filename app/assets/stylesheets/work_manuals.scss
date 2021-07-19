@@ -48,7 +48,10 @@ header{
   margin-bottom: 20px;
 }
 .work_manuals_search-wrap{
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  margin-bottom: 30px;
 }
 .approved{
   color: grey;
@@ -90,7 +93,7 @@ input[type="text"]{
 .work_manual-wrap{
   margin-bottom: 30px;
   padding-left: 100px;
-  padding-top: 100px;
+  padding-top: 50px;
   height: 100vh;
   width: 100vw;
   overflow: scroll;
@@ -143,8 +146,10 @@ input[type="text"]{
   height: 100%;
 }
 .form_work_manual{
-  height: 100vh;
-  width: 100%;
+  height: 700px;
+  width: 100vw;
+}
+.form_work_manual form{
   text-align: center;
 }
 .procedure_container{

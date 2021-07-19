@@ -1,11 +1,13 @@
 <div class="work_manuals_search-wrap">
-  <%= search_form_for @search do |f| %>
-    <%= f.label :process_cont, '工程名' %>
-    <%= f.search_field :process_cont %>
-    <%= f.label :tags_name_eq, 'タグ' %>
-    <%= f.collection_select :tags_name_eq, @tags, :name, :name, include_blank: '指定なし'  %>
-    <%= f.submit '検索' %>
-  <% end %>
+  <div class="work_manuals_search-form">
+    <%= search_form_for @search do |f| %>
+      <%= f.label :process_cont, '工程名' %>
+      <%= f.search_field :process_cont %>
+      <%= f.label :tags_name_eq, 'タグ' %>
+      <%= f.collection_select :tags_name_eq, @tags, :name, :name, include_blank: '指定なし'  %>
+      <%= f.submit '検索' %>
+    <% end %>
+  </div>
 </div>
 <div class="work_manual-wrap">
     <% @work_manuals.each do |work_manual|%>
@@ -24,7 +26,7 @@
           <%= "工程名： #{work_manual.process}" %>
         </div>
         <div class="work_manual_date">
-          <%= "更新日： #{work_manual.updated_at}" %><br>
+          <%= "文書番号：Q-WM-#{work_manual.id}"%><br>
           <%= "作成日： #{work_manual.created_at}" %>
         </div>
       </div>
@@ -54,7 +56,6 @@
             <% if current_user.authority_id >= 3 %>
               <ul>
                 <li><%= link_to '手順の一覧・作成', work_manual_path(work_manual.id), method: :get %></li>
-                <li><%= link_to 'マニュアル編集', edit_work_manual_path(work_manual.id), method: :get %></li>
                 <li><%= link_to 'マニュアル削除', work_manual_path(work_manual.id), method: :delete %></li>
               </ul>
             <%else%>

@@ -1,6 +1,5 @@
 class WorkManualsController < ApplicationController
-  before_action :set_params, only: [:edit, :update, :show]
-  before_action :move_to_index, only: [:new, :edit, :update]
+  before_action :move_to_index, only: [:new, :edit, :update, :destroy]
 
 
   def index
@@ -8,6 +7,7 @@ class WorkManualsController < ApplicationController
     @work_manuals = @search.result
     @tags = Tag.all
     @approvals = Approval.all
+    @procedures = Procedure.all
   end
   def new
     @work_manual = WorkManualsTag.new
@@ -21,21 +21,13 @@ class WorkManualsController < ApplicationController
       render :new
     end 
   end
-  def edit
-  end
-  def update
-    if @work_manual.update(work_manual_params)
-      redirect_to action: :index
-    else
-      render :edit
-    end
-  end
   def destroy
     work_manual = WorkManual.find(params[:id])
     work_manual.destroy
     redirect_to action: :index
   end
   def show
+    @work_manual = WorkManual.find(params[:id])
     @procedure = Procedure.new
     @procedures = @work_manual.procedures.includes(:user)
   end
@@ -55,7 +47,5 @@ class WorkManualsController < ApplicationController
       redirect_to action: :index
     end
   end
-  def set_params
-    @work_manual = WorkManual.find(params[:id])
-  end
+
 end

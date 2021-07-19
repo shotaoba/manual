@@ -2,7 +2,7 @@
   <h1>マニュアルの登録をしましょう</h1>
 </div>
 <div class="form_work_manual">
-  <%= form_with model: @work_manual,url: work_manuals_path, local: true do |f| %>
+  <%= form_with model: @work_manual, url: work_manuals_path, local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
     <div class="form_title">
       <%= f.label :title, 'マニュアル名' %><br>
@@ -26,5 +26,5 @@
       <%= f.submit '登録する' %>
     </div>
   <% end %>
-  <p>※※※ 作成・修正権限者のみ、マニュアルの登録・編集が可能です ※※※</p>
+    <p>※※※ 作成・修正権限者のみ、マニュアルの登録・編集が可能です ※※※</p>
 </div>

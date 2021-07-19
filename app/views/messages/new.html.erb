@@ -1,0 +1,25 @@
+<div class="message_wrap">
+
+
+  <div class="message_form">
+    <h1>メッセージを作成しましょう</h1><br>
+    <%= form_with model: @message, local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+      <div class="form_title">
+        <%= f.label :title, '件名' %><br>
+        <%= f.text_field :title, placeholder: '例）確認依頼'%> <br>
+      </div>
+      <div class="form_destination">
+        <%= f.label :destination, '宛先' %><br>
+        <%= f.collection_select(:destination, User.all, :email, :name)%> <br>
+      </div>
+      <div class="form_content">
+        <%= f.label :content, "メッセージ" %><br>
+        <%= f.text_area :content, placeholder: '例) お疲れ様です。マニュアルの承認お願いいたします。'%>
+      </div>
+      <div class="form_submit">
+        <%= f.submit '登録する' %>
+      </div>
+    <% end %>
+  </div>
+</div>
