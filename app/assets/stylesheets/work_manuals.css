@@ -38,7 +38,6 @@ header{
   text-decoration: none;
   background-color: #904644;
   margin: 0 auto;
-
 }
 .btn:hover{
   background-color: lightgrey;
@@ -64,7 +63,7 @@ header{
   width: 100%;
   text-align: center;
   padding-top: 20%;
-  background-image: image-url('welding-1209208__480.webp');
+  background-image: url('welding-1209208__480.webp');
   background-size: cover;
   background-color:rgba(255,255,255,0.3);
   background-blend-mode: lighten;
@@ -148,12 +147,10 @@ input[type="text"]{
 .form_work_manual{
   height: 700px;
   width: 100vw;
-}
-.form_work_manual {
+  margin-left: 30vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 250px;
 }
 .procedure_container{
   overflow: scroll;

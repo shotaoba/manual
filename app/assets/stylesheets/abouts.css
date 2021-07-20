@@ -1,9 +1,9 @@
 .about{
   height: 100vh;
-  background-image: url('pexels-photo-1216544.png');
+  background-image: url('1216544.jpg');
   background-size: cover;
   background-color:rgba(255,255,255,0.3);
-  background-blend-mode: lighten;
+  background-blend-mode: lighten; 
   background-repeat: no-repeat;
   text-align: center;
   padding-top: 20vh;
