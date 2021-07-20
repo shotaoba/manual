@@ -1,21 +1,3 @@
 // Place all the styles related to the how_tos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.how_to_container{
-  height:100vh;
-  width:100vw;
-  padding: 0 50px;
-  display: flex;
-  justify-content: center;
-}
-.how_to_box{
-  width: 70%;
-
-}
-.how_to_container h1{
-  font-size: 20px;
-  text-align: center;
-  margin-top: 30px;
-  padding: 10px;
-  background-color: rgb(119, 157, 189);
-}

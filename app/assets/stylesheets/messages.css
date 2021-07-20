@@ -1,0 +1,20 @@
+.message_wrap{
+  height: 950px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+.form_destination{
+  margin-bottom: 30px;
+}
+
+.message_form textarea{
+  width: 100%;
+}
+form{
+  width: 450px;
+}
+.message_form input{
+
+}
