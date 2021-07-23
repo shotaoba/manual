@@ -4,7 +4,11 @@ Work_Manual_App
 作業マニュアルの一元管理が可能なWebアプリケーションです。
 作業教育をこのアプリケーションを使い実施することができます。
 # URL
-https://work-manual-app.herokuapp.com/  (開発中)
+https://work-manual-app.herokuapp.com/ 
+
+# テスト用アカウント
+ID: test1@example
+Pass: a111111
 
 # 利用方法
 ユーザー登録を行い、マニュアルを登録した後に、手順の登録ができます。
