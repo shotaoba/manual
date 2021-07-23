@@ -63,7 +63,7 @@ header{
   width: 100%;
   text-align: center;
   padding-top: 20%;
-  background-image: url('welding-1209208__480.webp');
+  background-image: image-url('welding-1209208__480.webp');
   background-size: cover;
   background-color:rgba(255,255,255,0.3);
   background-blend-mode: lighten;
