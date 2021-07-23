@@ -4,7 +4,7 @@
       <%= "マニュアル名： #{@work_manual.title}" %>
     </div>
     <div class="work_manual_process">
-      <%= "工程： #{@work_manual.process}" %>
+      <%= "工程名： #{@work_manual.process}" %>
     </div>
      <div class="work_manual_date">
           <%= "文書番号：Q-WM-#{@work_manual.id}"%><br>
@@ -43,7 +43,9 @@
               <%= procedure.point%>
             </div>
             <div class="procedure_btn">
-              <%= link_to '削除', work_manual_procedure_path(@work_manual,procedure), method: :delete %></li>
+              <% if current_user.authority_id >= 3 %>
+                <%= link_to '削除', work_manual_procedure_path(@work_manual,procedure), method: :delete %></li>
+              <%end%>
             </div>
           </div>
         </div>

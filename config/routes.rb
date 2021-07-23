@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
   resources :messages, only: [:new, :create]
   resources :how_tos, only: [:index]
+  resources :abouts, only: [:index]
 end

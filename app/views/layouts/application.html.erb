@@ -32,11 +32,13 @@
               <%= link_to (work_manuals_path)do%>
                 <span class="fas fa-book-reader btn"> 一覧をみる</span>
               <%end%>
-              <%= link_to (new_work_manual_path)do%>
-                <span class="fas fa-book btn"> 登録する</span>
-              <%end%>
-              <%= link_to (edit_user_registration_path)do%>
-                <span class="far fa-address-card btn"> ユーザー編集</span>
+              <% if current_user.authority_id >= 3 %>
+                <%= link_to (new_work_manual_path)do%>
+                  <span class="fas fa-book btn"> 登録する</span>
+                <%end%>
+                <%= link_to (edit_user_registration_path)do%>
+                  <span class="far fa-address-card btn"> ユーザー編集</span>
+                <%end%>
               <%end%>
               <%= link_to (destroy_user_session_path), method: :delete do%>
                 <span class="fas fa-sign-out-alt btn"> ログアウト</span>
