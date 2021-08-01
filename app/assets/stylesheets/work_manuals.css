@@ -125,6 +125,9 @@ input[type="text"]{
   flex-direction: column;
   padding-left: 60px;
 }
+ul{
+  list-style: none;
+}
 .approval_data{
   margin-bottom: 20px;
 }
